@@ -21,6 +21,7 @@ This lab demonstrates a core **Layer 3 routing concept** required for enterprise
 - Static route configuration  
 - End-to-end connectivity verification  
 - Basic routing troubleshooting  
+- Ping verification for connectivity testing  
 
 ---
 
@@ -56,7 +57,8 @@ This lab demonstrates a core **Layer 3 routing concept** required for enterprise
 - ** Config screenshots include:**  
   `pc1 gateway(R1)config.png`  
   `R1 static route config.png`  
-  `R2 static route Config.png`
+  `R2 static route Config.png`  
+  `ping PC2 evidence.png` (success verification)
 
 ---
 
@@ -87,5 +89,27 @@ enable
 configure terminal
 hostname R1
 ........
+
+
+## ✅ Verification - Lab Success Criteria
+
+The lab is considered successful when:
+- All router interfaces are configured with correct IP addresses
+- All static routes are correctly configured on R1, R2, and R3
+- **PC1 can successfully ping PC2 (192.168.3.1)** - This is the primary verification of end-to-end connectivity
+- The ping response shows zero packet loss, confirming the routing path is complete
+
+### Evidence of Success
+A successful ping from PC1 to PC2 will display output similar to:
+```
+Reply from 192.168.3.1: bytes=32 time=XX ms TTL=XX
+```
+
+This confirms that:
+- PC1's packets reach PC2 through the static routing configuration
+- Return packets successfully traverse back through the routing path
+- The inter-LAN communication objective has been achieved
+
+*Ping test screenshot saved as: `ping PC2 evidence.png`*
 
 
